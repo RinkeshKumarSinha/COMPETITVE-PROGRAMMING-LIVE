@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+// prefix array sum
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[n + 1];
+    for (int i = 1; i <= n; i++)
+        cin >> arr[i];
+
+    int pref[n + 1];
+    pref[0] = 0;
+    for (int i = 0; i <= n; i++)
+        pref[i] = arr[i] + pref[i - 1];
+    int q;
+    cin >> q;
+    while (q--)
+    {
+        int l, r;
+        cin >> l >> r;
+        int ans;
+        ans = pref[r] - pref[l - 1];
+        cout << ans << "\n";
+    }
+    return 0;
+}
