@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+//simple Binary Search implementation 
+//note the array must be sorted
+//BS works for monotonic functions
+
+int binarySearch(int arr[],int x,int size){
+    int l=0;
+  
+    int r=size-1;
+    while(l<=r){
+    int mid=(l+r)/2;
+    if(arr[mid]==x)return mid;
+    else if(arr[mid]>x)r=mid-1;
+    else l=mid+1;
+    }
+    
+    return -1;
+   
+}
+
+
+int main(){
+
+int n;
+cin>>n;
+int arr[n];
+for(int i=0;i<n;i++)cin>>arr[i];
+int x;
+cin>>x;
+  int size=sizeof(arr)/sizeof(arr[0]);
+cout<<binarySearch(arr,x,size)<<" ";
+
+
+
+
+
+
+
+return 0;
+}
